@@ -3,9 +3,16 @@
 <p><%= @restaurant.phone_number %></p>
 <p><%= @restaurant.category %></p>
 
-<%= link_to "Add Review", new_restaurant_review_path(@restaurant) %>
+<p>Add a Review</p>
+<%= simple_form_for [@restaurant, @review] do |f| %>
+  <%= f.input :content %>
+  <%= f.input :rating %>
+  <%= f.submit :submit %>
+<% end %>
 
 <% @restaurant.reviews.each do |review| %>
   <p><%= review.content %></p>
+  <p><%= review.rating %></p>
+
 <% end %>
 <%= link_to("Back", restaurants_path) %>
