@@ -1,0 +1,11 @@
+<div class="container">
+  <div class="title-options d-flex justify-content-between align-items-center">
+    <h1>All Restaraunts</h1>
+    <%= link_to "Add Restaurant", new_restaurant_path, :class => "btn btn-primary" %>
+  </div>
+  <ul class="row row-cols-4 mt-3">
+    <% @restaurants.each do |restaurant| %>
+      <li class="list-unstyled p-2 col border text-center"> <%= link_to restaurant.name, restaurant_path(restaurant), :class => "link link-secondary"  %> </li>
+    <% end %>
+  </ul>
+</div>
